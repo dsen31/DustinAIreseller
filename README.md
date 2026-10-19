@@ -1,6 +1,6 @@
 # NXT Workspace
 
-A new implementation of the NXT technology-buying concept with a forest-green, warm-white workspace design. Built independently from the original app; the original checkout and database are untouched.
+A new implementation of the NXT technology-buying concept with a photography-led, black-and-white website design. Built independently from the original app; the original checkout and database are untouched.
 
 ## Run
 
@@ -22,7 +22,7 @@ Vite uses port 8081. Run `npm run build` for a production build; `npm run previe
 - Quantity validation, project assignment, saving and deleting quotes.
 - Project creation and quote totals by project.
 - CSV export with supplier cost, service markup, and total separated.
-- Local browser persistence, mobile navigation, keyboard focus handling, and local fonts.
+- Local browser persistence, mobile navigation, keyboard focus handling, and system Helvetica/Arial fonts.
 
 This is an interactive first version. Catalog entries and prices are examples, not live distributor offers. The advisor is not connected to an AI model. Authentication, shared database storage, live inventory, payments, email delivery, business-case generation, and production backend integrations are not implemented. Data stays in the current browser and is not synchronized across devices. No secrets or original customer data are included.
 
@@ -39,10 +39,8 @@ Smoke tests use system Chromium at `/usr/bin/chromium`; set `CHROMIUM_PATH` if n
 
 ## GitHub
 
-Intended destination: the public repository `dsen31/nxt-workspace`. Repository creation was attempted but the environment proxy denied `api.github.com`. Once that destination is allowed and authenticated GitHub API access works, run:
+Intended destination: the public repository `dsen31/nxt-workspace`. GitHub API access now works as dsen31, but the connected integration returned “Resource not accessible by integration” for repository creation. No remote repository has been created. The user must create an empty public repository or enable repository-creation permission for the connection. Once an empty remote exists, add it as origin and push main; do not overwrite existing remote work.
 
-```sh
-gh repo create dsen31/nxt-workspace --public --source=. --remote=origin --push
-```
+## Design reference
 
-Only use this command if the remote repository does not already exist. No new GitHub repository has been created yet.
+The aCTOr Advisory website informed the typography, photography-led opening, simple horizontal navigation, and restrained layout. NXT keeps its own name, procurement copy, and interactive buying tools. Images under `public/images` were downloaded from the user’s aCTOr Advisory website with TLS verification and are served locally; their source is https://www.actoradvisory.com/. No live dependency on that website is needed at runtime.

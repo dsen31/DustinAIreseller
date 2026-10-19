@@ -13,7 +13,9 @@ try {
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto(process.env.APP_URL || "http://127.0.0.1:8081");
   await expect(
-    page.getByRole("heading", { name: "Good technology. Clear choices." }),
+    page.getByRole("heading", {
+      name: "Technology buying. Transparent pricing.",
+    }),
   ).toBeVisible();
   await page.screenshot({
     path: "/tmp/nxt-workspace-desktop.png",
@@ -70,7 +72,9 @@ try {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.getByRole("button", { name: "Overview", exact: true }).click();
   await expect(
-    page.getByRole("heading", { name: "Good technology. Clear choices." }),
+    page.getByRole("heading", {
+      name: "Technology buying. Transparent pricing.",
+    }),
   ).toBeVisible();
   if (
     await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)

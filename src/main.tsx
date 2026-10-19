@@ -20,13 +20,6 @@ import {
   Download,
   Trash2,
 } from "lucide-react";
-import "@fontsource/dm-sans/latin-400.css";
-import "@fontsource/dm-sans/latin-500.css";
-import "@fontsource/dm-sans/latin-600.css";
-import "@fontsource/manrope/latin-400.css";
-import "@fontsource/manrope/latin-500.css";
-import "@fontsource/manrope/latin-600.css";
-import "@fontsource/manrope/latin-800.css";
 import "./style.css";
 type Product = {
   id: string;
@@ -330,18 +323,11 @@ function App() {
     <div className="shell">
       <aside>
         <a className="brand" href="#" onClick={() => setTab("Overview")}>
-          nxt
           <span>
-            <ArrowUpRight size={32} />
+            <strong>NXT</strong>
+            <span className="brand-divider">/</span>Technology procurement
           </span>
         </a>
-        <div className="workspace">
-          <span className="avatar">Y</span>
-          <div>
-            Your workspace<small>Technology, together</small>
-          </div>
-        </div>
-        <p className="nav-label">WORKSPACE</p>
         <nav>
           {nav.map(([name, Icon]) => (
             <button
@@ -358,22 +344,8 @@ function App() {
             </button>
           ))}
         </nav>
-        <div className="sidebar-note">
-          <Sparkles size={20} />
-          <h4>A little clarity goes a long way.</h4>
-          <p>Find the right technology, at a price you understand.</p>
-          <button onClick={() => setTab("Advisor")}>
-            Meet your advisor <ArrowRight size={15} />
-          </button>
-        </div>
-        <div className="profile">
-          <span className="avatar">Y</span>
-          <div>
-            Your local workspace<small>Saved on this device</small>
-          </div>
-        </div>
       </aside>
-      <main>
+      <main className={tab === "Overview" ? "view-overview" : "view-inner"}>
         <header>
           <span>
             Workspace <ChevronRight size={13} /> <b>{tab}</b>
@@ -386,23 +358,23 @@ function App() {
         <div className="content">
           <div className="page-heading">
             <div>
-              <span className="eyebrow">LESS GUESSWORK. BETTER DECISIONS.</span>
+              <span className="eyebrow">NXT / TECHNOLOGY ADVISORY</span>
               <h1>
                 {tab === "Overview"
-                  ? "Good technology. Clear choices."
+                  ? "Technology for your business."
                   : tab === "Advisor"
-                    ? "Let’s find your next right move."
+                    ? "Tell us what you need."
                     : tab === "Compare"
-                      ? "The right fit, in plain sight."
+                      ? "Compare technology."
                       : tab === "Quotes"
-                        ? "Every number, out in the open."
-                        : "Big ideas. A little more organized."}
+                        ? "Your quotes."
+                        : "Your projects."}
               </h1>
               <p>
                 {tab === "Overview"
-                  ? "Your next technology decision starts here. Let’s make it a good one."
+                  ? "Compare products, understand the cost, and plan your next purchase."
                   : tab === "Advisor"
-                    ? "Explore your needs with BoBo, your technology buying companion."
+                    ? "Describe your requirements. BoBo can help you consider the options."
                     : tab === "Compare"
                       ? "Explore example products and see exactly how the price adds up."
                       : tab === "Quotes"
@@ -430,56 +402,24 @@ function App() {
           {tab === "Overview" && (
             <>
               <section className="hero">
-                <div>
-                  <span className="hero-label">
-                    <Sparkles size={15} /> MEET BOBO, YOUR BUYING COMPANION
-                  </span>
-                  <h2>
-                    A smarter way to
-                    <br />
-                    get from “what if”
-                    <br />
-                    to what’s next.
-                  </h2>
-                  <p>
-                    Tell us what your team needs. Explore your options.
-                    <br />
-                    See the price behind the price.
+                <div className="hero-copy">
+                  <p className="eyebrow">TECHNOLOGY ADVISORY & PROCUREMENT</p>
+                  <h1>
+                    Technology buying.
+                    <br className="desktop-break" /> Transparent pricing.
+                  </h1>
+                  <p className="hero-intro">
+                    Compare technology for your team. See supplier costs and our
+                    margin before you build a quote.
                   </p>
-                  <button className="light" onClick={() => setTab("Advisor")}>
-                    Let’s figure it out <ArrowUpRight size={17} />
-                  </button>
-                </div>
-                <div className="hero-visual">
-                  <div className="orbit orbit-one" />
-                  <div className="orbit orbit-two" />
-                  <div className="visual-card">
-                    <span className="mini-icon">
-                      <Laptop size={22} />
-                    </span>
-                    <small>YOUR NEXT TEAM REFRESH</small>
-                    <h3>
-                      Better equipped.
-                      <br />
-                      Better informed.
-                    </h3>
-                    <div>
-                      <span>Supplier cost</span>
-                      <b>Visible.</b>
-                    </div>
-                    <div>
-                      <span>Our margin</span>
-                      <b>Transparent.</b>
-                    </div>
-                    <div>
-                      <span>Your decision</span>
-                      <b>Confident.</b>
-                    </div>
-                    <span className="visual-badge">
-                      <Check size={13} /> A clearer way forward
-                    </span>
+                  <div className="hero-links">
+                    <button onClick={() => setTab("Compare")}>
+                      Explore products <ArrowUpRight size={16} />
+                    </button>
+                    <button onClick={() => setTab("Advisor")}>
+                      Talk to BoBo <ArrowRight size={16} />
+                    </button>
                   </div>
-                  <span className="floating-star">✳</span>
                 </div>
               </section>
               <section className="stats">
@@ -488,7 +428,7 @@ function App() {
                     YOUR QUOTES <FileText size={17} />
                   </span>
                   <strong>{quotes.length.toString().padStart(2, "0")}</strong>
-                  <small>Ideas taking shape</small>
+                  <small>Saved in this browser</small>
                 </div>
                 <div>
                   <span>
@@ -502,13 +442,13 @@ function App() {
                     ACTIVE PROJECTS <Folder size={17} />
                   </span>
                   <strong>{projects.length.toString().padStart(2, "0")}</strong>
-                  <small>A home for your next big thing</small>
+                  <small>Plans in progress</small>
                 </div>
               </section>
               <div className="section-heading">
                 <div>
-                  <h2>What’s on your horizon?</h2>
-                  <p>A few starting points to get the ideas flowing.</p>
+                  <h2>What does your business need?</h2>
+                  <p>Choose a starting point for your next purchase.</p>
                 </div>
                 <span>01 — EXPLORE</span>
               </div>
@@ -516,27 +456,17 @@ function App() {
                 {[
                   [
                     "Refresh our laptops",
-                    "Find the right fit for every kind of work.",
+                    "Compare devices for your team.",
                     Laptop,
                   ],
-                  [
-                    "Protect our team",
-                    "Make security part of your everyday.",
-                    Shield,
-                  ],
-                  [
-                    "Connect our office",
-                    "Build a network that keeps up.",
-                    Wifi,
-                  ],
+                  ["Protect our team", "Explore endpoint protection.", Shield],
+                  ["Connect our office", "Plan your office network.", Wifi],
                 ].map(([title, desc, Icon]) => (
                   <button
                     key={String(title)}
                     onClick={() => ask(String(title))}
                   >
-                    <span className="starter-icon">
-                      <Icon size={24} />
-                    </span>
+                    <span className="starter-image" aria-hidden="true" />
                     <h3>{String(title)}</h3>
                     <p>{String(desc)}</p>
                     <ArrowUpRight className="corner" size={18} />
@@ -549,8 +479,8 @@ function App() {
           {tab === "Advisor" && (
             <div className="advisor">
               <div className="advisor-intro">
-                <span className="bobo">✳</span>
-                <h2>A good decision starts with a conversation.</h2>
+                <span className="bobo">BoBo / Technology advisor</span>
+                <h2>What are you looking for?</h2>
                 <p>What are you planning for your team?</p>
                 <small>
                   Demo advisor · rule-based guidance, not a live AI connection.
@@ -622,7 +552,7 @@ function App() {
               {!quotes.length ? (
                 <div className="empty">
                   <FileText size={36} />
-                  <h2>Your next idea starts with a number.</h2>
+                  <h2>No quotes saved yet.</h2>
                   <p>
                     Choose a product, set your quantity, and save your first
                     estimate.
@@ -673,7 +603,7 @@ function App() {
             (!projects.length ? (
               <div className="empty">
                 <Folder size={36} />
-                <h2>Make room for what’s next.</h2>
+                <h2>Create your first project.</h2>
                 <p>Create a project and keep related quotes together.</p>
                 <button
                   className="primary"
@@ -722,7 +652,7 @@ function App() {
                 <ArrowUpRight size={12} />
               </span>{" "}
               <span className="footer-tag">
-                Technology buying, with a little more clarity.
+                Technology advisory & procurement
               </span>
             </span>
             <span>Sample catalog & pricing · Not a purchase offer</span>
@@ -832,7 +762,7 @@ function App() {
             >
               <X />
             </button>
-            <h2>Start something good.</h2>
+            <h2>New project</h2>
             <label>
               Project name
               <input
