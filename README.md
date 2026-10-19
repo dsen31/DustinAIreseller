@@ -39,7 +39,9 @@ Smoke tests use system Chromium at `/usr/bin/chromium`; set `CHROMIUM_PATH` if n
 
 ## GitHub
 
-Intended destination: the public repository `dsen31/nxt-workspace`. GitHub API access now works as dsen31, but the connected integration returned “Resource not accessible by integration” for repository creation. No remote repository has been created. The user must create an empty public repository or enable repository-creation permission for the connection. Once an empty remote exists, add it as origin and push main; do not overwrite existing remote work.
+Public source repository: https://github.com/dsen31/DustinAIreseller
+
+The app is separate from the original `dsen31/nxt-ai-advisor` repository. Work in this checkout and push to its origin; do not change the original application.
 
 ## Design reference
 
