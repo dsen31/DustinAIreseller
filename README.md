@@ -1,6 +1,6 @@
 # NXT Workspace
 
-A new implementation of the NXT technology-buying concept with a photography-led, black-and-white website design. Built independently from the original app; the original checkout and database are untouched.
+An independent technology-procurement workspace for comparing products, building quotes, and organizing purchase plans. The original checkout and database are untouched.
 
 ## Run
 
@@ -43,6 +43,6 @@ Public source repository: https://github.com/dsen31/DustinAIreseller
 
 The app is separate from the original `dsen31/nxt-ai-advisor` repository. Work in this checkout and push to its origin; do not change the original application.
 
-## Design reference
+## Design
 
-The aCTOr Advisory website informed the typography, photography-led opening, simple horizontal navigation, and restrained layout. NXT keeps its own name, procurement copy, and interactive buying tools. Images under `public/images` were downloaded from the user’s aCTOr Advisory website with TLS verification and are served locally; their source is https://www.actoradvisory.com/. No live dependency on that website is needed at runtime.
+NXT has its own light, product-focused visual system with an information-dense workspace layout. It does not use imagery, copy, or runtime dependencies from aCTOr Advisory.

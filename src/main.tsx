@@ -323,10 +323,8 @@ function App() {
     <div className="shell">
       <aside>
         <a className="brand" href="#" onClick={() => setTab("Overview")}>
-          <span>
-            <strong>NXT</strong>
-            <span className="brand-divider">/</span>Technology procurement
-          </span>
+          <span className="brand-symbol">N</span>
+          <span><strong>nxt</strong><small>procurement</small></span>
         </a>
         <nav>
           {nav.map(([name, Icon]) => (
@@ -403,23 +401,25 @@ function App() {
             <>
               <section className="hero">
                 <div className="hero-copy">
-                  <p className="eyebrow">TECHNOLOGY ADVISORY & PROCUREMENT</p>
-                  <h1>
-                    Technology buying.
-                    <br className="desktop-break" /> Transparent pricing.
-                  </h1>
-                  <p className="hero-intro">
-                    Compare technology for your team. See supplier costs and our
-                    margin before you build a quote.
-                  </p>
-                  <div className="hero-links">
-                    <button onClick={() => setTab("Compare")}>
-                      Explore products <ArrowUpRight size={16} />
+                  <span className="eyebrow">NXT PROCUREMENT WORKSPACE</span>
+                  <h1>Plan purchases with the full picture.</h1>
+                  <p className="hero-intro">Compare options, understand the numbers, and move a purchase forward with your team.</p>
+                  <div className="hero-actions">
+                    <button className="primary" onClick={() => setTab("Compare")}>
+                      Browse catalog <ArrowRight size={16} />
                     </button>
-                    <button onClick={() => setTab("Advisor")}>
-                      Talk to BoBo <ArrowRight size={16} />
+                    <button className="text-button" onClick={() => setTab("Advisor")}>
+                      Ask for guidance <ArrowUpRight size={15} />
                     </button>
                   </div>
+                </div>
+                <div className="hero-plan" aria-label="Example purchasing plan">
+                  <div className="plan-top"><span>IN PROGRESS</span><span className="plan-dot"/></div>
+                  <h2>2026 device refresh</h2>
+                  <p>25 employee laptops</p>
+                  <div className="plan-meter"><span/><span/><span/><span/><i/></div>
+                  <div className="plan-total"><span>Working budget</span><strong>$27,900</strong></div>
+                  <div className="plan-footer"><span>3 options compared</span><ArrowUpRight size={17}/></div>
                 </div>
               </section>
               <section className="stats">
@@ -450,7 +450,7 @@ function App() {
                   <h2>What does your business need?</h2>
                   <p>Choose a starting point for your next purchase.</p>
                 </div>
-                <span>01 — EXPLORE</span>
+                  <span>START HERE</span>
               </div>
               <div className="starters">
                 {[
@@ -466,7 +466,7 @@ function App() {
                     key={String(title)}
                     onClick={() => ask(String(title))}
                   >
-                    <span className="starter-image" aria-hidden="true" />
+                    <span className="starter-icon"><Icon size={24} /></span>
                     <h3>{String(title)}</h3>
                     <p>{String(desc)}</p>
                     <ArrowUpRight className="corner" size={18} />
